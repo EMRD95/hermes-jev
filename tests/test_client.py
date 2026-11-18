@@ -88,11 +88,11 @@ class ClientTests(unittest.TestCase):
             return httpx.Response(200, json=RESPONSE)
         with self.transport(handler):
             result = self.evaluate(backend='opencode')
-            self.evaluate(backend='opencode', model='jev-1.13-free')
+            self.evaluate(backend='opencode', model='jev-1.13')
         self.assertEqual(result['answers'], RESPONSE['answers'])
         self.assertEqual(result['backend'], 'opencode')
         self.assertEqual(len(seen), 2)
-        for request, model in zip(seen, ('jev-1.13', 'jev-1.13-free')):
+        for request, model in zip(seen, ('jev-1.13-free', 'jev-1.13')):
             self.assertEqual(str(request.url), 'https://opencode.ai/inference/systemone/v1/systemone')
             self.assertEqual(request.headers['Authorization'], 'Bearer fixture-token')
             self.assertEqual(json.loads(request.content), {'model': model, 'state': 'Help', 'questions': QUESTIONS})

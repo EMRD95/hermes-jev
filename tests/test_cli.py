@@ -77,7 +77,7 @@ class CLITests(unittest.TestCase):
     def test_gatewayless_setup_uses_a_dedicated_slot_and_no_account_id(self):
         for backend, slot, model in (
             ('openrouter', 'OPENROUTER_JEV_API_TOKEN', 'typesafe/jev-1.13'),
-            ('opencode', 'OPENCODE_JEV_API_KEY', 'jev-1.13'),
+            ('opencode', 'OPENCODE_JEV_API_KEY', 'jev-1.13-free'),
         ):
             with self.subTest(backend=backend):
                 self.assert_gatewayless_setup(backend, slot, model)

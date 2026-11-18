@@ -267,7 +267,7 @@ def evaluate(*, backend: str, token: str, state, questions: dict,
     """Evaluate once; retain model/answers/usage and append local metadata.
 
     backend: 'typesafe', 'cloudflare', 'openrouter' or 'opencode'. Cloudflare requires a 32-hex
-    account_id. Defaults: jev-latest, typesafe/jev, typesafe/jev-1.13 and jev-1.13 respectively
+    account_id. Defaults: jev-latest, typesafe/jev, typesafe/jev-1.13 and jev-1.13-free respectively
     (OpenRouter's Decisions API rejects the 'jev-latest' alias, so its default is
     version-pinned). Model override changes only the JSON model identifier, never the
     fixed endpoint.
@@ -316,7 +316,7 @@ def evaluate(*, backend: str, token: str, state, questions: dict,
         payload = {"model": model or "typesafe/jev-1.13", "state": state, "questions": questions}
     elif backend == "opencode":
         url = "https://opencode.ai/inference/systemone/v1/systemone"
-        payload = {"model": model or "jev-1.13", "state": state, "questions": questions}
+        payload = {"model": model or "jev-1.13-free", "state": state, "questions": questions}
     else:
         url = "https://api.typesafe.ai/v1/systemone"
         payload = {"model": model or "jev-latest", "state": state, "questions": questions}

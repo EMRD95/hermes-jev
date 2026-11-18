@@ -7,7 +7,7 @@ from .routing import route_questions, route_result, validate_candidates, validat
 SECRET_NAMES = {'typesafe': 'TYPESAFE_API_KEY', 'cloudflare': 'CLOUDFLARE_JEV_API_TOKEN',
                 'openrouter': 'OPENROUTER_JEV_API_TOKEN', 'opencode': 'OPENCODE_JEV_API_KEY'}
 MODELS = {'typesafe': 'jev-latest', 'cloudflare': 'typesafe/jev',
-          'openrouter': 'typesafe/jev-1.13', 'opencode': 'jev-1.13'}
+          'openrouter': 'typesafe/jev-1.13', 'opencode': 'jev-1.13-free'}
 
 
 def credential_name_present(name):
